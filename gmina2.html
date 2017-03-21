@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="nowy_styl_2.css">
+    <title>
+        PKW - gmina {{gmina}}
+    </title>
+</head>
+<body>
+    <div id="pagewrap">
+    <header>
+        <h1>Wybory prezydenckie</h1>
+    </header>
+    <section>
+        <div id="left">
+            <h2>Gmina {{gmina}}<h2>
+        </div>
+
+        <div id="right">
+          <table>
+              <tr>
+                  <th>Dane</th>
+                  <th>Liczba</th>
+              </tr>
+              <tr>
+                  <td>Uprawnieni</td>
+                  <td>{{dane['Uprawnieni']}}</td>
+              </tr>
+              <tr>
+                  <td>Karty wydane</td>
+                  <td>{{dane['Karty wydane']}}</td>
+              </tr>
+              <tr>
+                  <td>Głosy ważne</td>
+                  <td>{{dane['Głosy ważne']}}</td>
+              </tr>
+              <tr>
+                  <td>Głosy nieważne</td>
+                  <td>{{dane['Głosy nieważne']}}</td>
+              </tr>
+              <tr>
+                  <td>Frekwencja</td>
+                  <td>{{dane['Frekwencja']}}%</td>
+              </tr>
+          </table>
+      </div>
+    </section>
+    <section>
+        <div id="data">
+            <table>
+                <tr>
+                    <th>Imie i nazwisko</th>
+                    <th>Liczba głosów</th>
+                    <th>Procenty</th>
+                </tr>
+                {% for kandydat, glosy in kandydaci_glosy.items() %}
+                <tr>
+                    <td>{{kandydat}}</td>
+                    <td>{{glosy}}</td>
+                    <td><div id="bar"><div style="width: {{kandydaci_procenty[kandydat]}}%"></div></div>{{kandydaci_procenty[kandydat]}}%</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+    <footer>
+        <p>Jakub Sarzyński</p>
+    </footer>
+</div>
+</html>
